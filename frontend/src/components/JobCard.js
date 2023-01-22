@@ -21,8 +21,8 @@ const JobCard = ({ company, position, location, salary }) => {
             </div>
           </div>
         </div>
-        <div class="col-md-1">
-            <div class="btn btn-apply align-self-center">Apply</div>
+        <div className="col-md-1">
+            <div className="btn btn-apply align-self-center">Apply</div>
         </div>
       </div>
     </div>
