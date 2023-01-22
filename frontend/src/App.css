@@ -51,3 +51,12 @@
   vertical-align: middle;
   padding: 3px;
 }
+
+.resume-page {
+  margin: 0 auto;
+  font-family: "Rubik", sans-serif !important;
+}
+
+.resume-upload {
+  margin-top: 5vh;
+}
