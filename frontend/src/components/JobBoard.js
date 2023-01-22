@@ -3,12 +3,27 @@ import JobCard from './JobCard';
 
 const JobBoard = () => {
 return (
-    <div>
+    <div className="jobCardList">
+        <h3>Open Positions</h3>
         <JobCard 
             company="Google" 
             position="Software Engineer" 
             location="Mountain View, CA" 
-            description="We are looking for a software engineer to join our team. You will be working on cutting-edge technologies and building innovative solutions." 
+            salary="$55/hr"
+        />
+
+        <JobCard 
+            company="Google"
+            position="Software Engineer"
+            location="Mountain View, CA"
+            salary="$55/hr"        
+        />
+
+        <JobCard 
+            company="Google" 
+            position="Software Engineer" 
+            location="Mountain View, CA" 
+            salary="$55/hr"
         />
     </div>
     );

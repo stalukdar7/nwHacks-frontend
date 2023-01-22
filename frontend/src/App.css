@@ -1,5 +1,22 @@
 .App {
   margin: 0 auto;
-  width: 60%;
-  border: 3px solid green;
+  width: 50%;
+  min-height: 100%;
+}
+
+.SideNav {
+  float: left;
+  width: 20%;
+  height: 100vh;
+  border: 2px red solid;
+}
+
+.JobBoard {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.welcomeMessage {
+  padding-top: 8vh;
 }
