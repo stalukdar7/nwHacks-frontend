@@ -3,6 +3,7 @@
   width: 70%;
   min-height: 100%;
   margin-left: 5%;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .SideNav {
@@ -16,26 +17,18 @@
   float: left;
   width: 100%;
   margin-top: 10px;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .welcomeMessage {
   padding-top: 8vh;
   margin-bottom: 3rem;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .parent {
   display: flex;
   justify-content: space-between;
-}
-
-span.circle {
-height: 20px;
-width: 20px;
-border-radius: 100%;
-border: 1px solid #eee;
-background:#ddd;   
-cursor: pointer;
-transition: all 0.4s ease-in-out;
 }
 
 .btn-filter {
@@ -51,6 +44,7 @@ transition: all 0.4s ease-in-out;
   margin-top: 3rem;
   overflow-y: auto;
   max-height: 70vh;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .material-symbols-outlined {

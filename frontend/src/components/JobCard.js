@@ -1,6 +1,6 @@
 import React from "react";
 
-const JobCard = ({ company, position, location, salary }) => {
+const JobCard = ({ company, position, location, salary, link }) => {
   return (
     <div class="card mb-3" style={{width: '100%'}}>
       <div class="row g-0 align-items-center">
@@ -8,7 +8,9 @@ const JobCard = ({ company, position, location, salary }) => {
           <svg class="bd-placeholder-img img-fluid rounded-start" width="100%" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="70%" height="100%" fill="#876839"></rect>
-            <text x="25%" y="50%" fill="#dee2e6" dy=".3em">{company}</text>
+            <text x="25%" y="50%" fill="#dee2e6" dy=".3em">
+              {company}
+            </text>
           </svg>
         </div>
         <div class="col-md-8">
@@ -22,7 +24,7 @@ const JobCard = ({ company, position, location, salary }) => {
           </div>
         </div>
         <div className="col-md-1">
-            <div className="btn btn-apply align-self-center">Apply</div>
+            <div class="btn btn-apply align-self-center"><a href={link} style={{textDecoration: "none", color: "white"}}>Apply</a></div>
         </div>
       </div>
     </div>

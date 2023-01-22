@@ -35,7 +35,7 @@ return (
                 position={data[jobId].Position}
                 location={data[jobId].Location}
                 salary={data[jobId].Salary}
-                //link={data[jobId].link}
+                link={data[jobId].Link}
                 //visa={data[jobId].visa}
               />
             ))}
