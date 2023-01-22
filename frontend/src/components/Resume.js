@@ -86,6 +86,7 @@ const ResumeUploader = () => {
                             </defs>
                         </svg>
                     </label>
+                    {file ? (<p>Your file has successfully been uploaded!</p>) : null}
                     <input type="file" className="form-control-file d-none" id="resume" onChange={handleChange} />
                     <br />
                     <btn class="btn btn-apply align-self-center" onClick={sendResume}>Optimize My Resume</btn>

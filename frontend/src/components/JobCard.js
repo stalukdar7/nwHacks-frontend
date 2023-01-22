@@ -22,8 +22,12 @@ const JobCard = ({ company, position, location, salary, link, leetcode }) => {
             <h5 class="card-title rubik-font">{position}</h5>
             <div style={{width: '100%'}}>
               <p style={{float: "left"}}><span style={{verticalAlign: "middle"}}><span class="material-symbols-outlined">location_on</span>{location}</span></p>
-              <p style={{float: "left", marginLeft: '10%'}} class="card-text"><span class="material-symbols-outlined">attach_money</span>{salary}</p>
-              <p style={{float: "left", marginLeft: '10%'}}><span class="material-symbols-outlined">credit_card</span>Visa Sponsorship</p>
+              <p style={{float: "left", marginLeft: '10%'}} class="card-text"><span class="material-symbols-outlined">attach_money</span>{salary === 0 ? "-" : salary}</p>
+              <p style={{float: "left", marginLeft: '10%'}}><span class="material-symbols-outlined">credit_card</span>Visa Sponsorship
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.26865 15.6188L3.36865 10.7188L4.30928 9.77813L8.26865 13.7375L16.6687 5.3375L17.6093 6.27813L8.26865 15.6188Z" fill="#00751A"/>
+                </svg>
+              </p>
               {leetcode.length ? (
                 <div>
               <p style={{float: "left", marginLeft: '10%'}} onClick={() => {setModalOpen(true); console.log("OPEN")}}>View Leetcode</p>
