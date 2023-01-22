@@ -13,24 +13,43 @@ const ResumeUploader = () => {
     setJobLink(e.target.value);
   }
 
-  const sendResume = async (resume, jobLink) => {
-    try {
-      const formData = new FormData();
-      formData.append("resume", resume);
-      formData.append("jobLink", jobLink);
-  
-      const response = await fetch("http://localhost:8080/uploadresume", {
-        method: "POST",
-        body: formData
-      });
-  
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      const data = await response.json();
-      console.log(data);
-    } catch (err) {
-      console.error(err);
+  const sendResume = async () => {
+    if (file && jobLink) {
+        try {
+        const formData = new FormData();
+        formData.append("resume", file);
+        formData.append("link", jobLink);
+    
+        const response = await fetch("http://localhost:8080/uploadresume", {
+            method: "POST",
+            body: formData,
+            responseType: 'blob'
+        });
+    
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        await response.blob()
+            .then(blob => {
+                // Create a URL for the file
+                const fileURL = URL.createObjectURL(blob);
+                // Create a link element for the file
+                const downloadLink = document.createElement("a");
+                // Set the link's href to the file URL
+                downloadLink.href = fileURL;
+                // Set the link's download attribute
+                downloadLink.download = "document.docx";
+                // Append the link to the body
+                document.body.appendChild(downloadLink);
+                // Click the link to trigger the download
+                downloadLink.click();
+                // Remove the link from the body
+                document.body.removeChild(downloadLink);
+            });
+        } catch (err) {
+            console.error(err);
+        }
     }
   };  
 
@@ -43,11 +62,15 @@ const ResumeUploader = () => {
         
         <div className='resume-upload'>
             <h3>How it works</h3>
-            <p>1. Upload your resume</p>
-            <p>2. Paste a link to the job description</p>
-            <p>3. Get an optimized resume</p>
+            <p>1. Paste URL link to job description</p>
+            <p>2. Upload your resume (DOCX. file accepted)</p>
+            <p>3. Download your new resume (DOCX. file)</p>
             <form>
                 <div className="form-group">
+                    <br />
+                    <label htmlFor="resume" className="d-block">Job Description Link</label>
+                    <input type="text" className='form-control' id="job-link" onChange={handleLinkChange} />
+                    <br />
                     <label htmlFor="resume" className="d-block">
                         <svg width="742" height="261" viewBox="0 0 742 261" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="742" height="261" rx="10" fill="#818716"/>
@@ -65,10 +88,7 @@ const ResumeUploader = () => {
                     </label>
                     <input type="file" className="form-control-file d-none" id="resume" onChange={handleChange} />
                     <br />
-                    <label htmlFor="resume" className="d-block">Job Description Link</label>
-                    <input type="text" className='form-control' id="job-link" onChange={handleLinkChange} />
-                    <br />
-                    <btn class="btn btn-apply align-self-center">Optimize My Resume</btn>
+                    <btn class="btn btn-apply align-self-center" onClick={sendResume}>Optimize My Resume</btn>
                 </div>
             </form>
         </div>
