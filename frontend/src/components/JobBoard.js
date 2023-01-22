@@ -36,6 +36,7 @@ return (
                 location={data[jobId].Location}
                 salary={data[jobId].Salary}
                 link={data[jobId].Link}
+                leetcode={data[jobId].LeetCode || []}
                 //visa={data[jobId].visa}
               />
             ))}

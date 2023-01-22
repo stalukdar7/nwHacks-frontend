@@ -60,3 +60,12 @@
 .resume-upload {
   margin-top: 5vh;
 }
+
+.rubik-font {
+  font-family: "Rubik", sans-serif !important;
+}
+
+.leetcode-modal {
+  width: 100%;
+  background-color: #F5F6EC;
+}
